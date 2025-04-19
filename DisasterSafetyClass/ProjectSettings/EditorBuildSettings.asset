@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step1/Eq_Step1_S1.unity
+    guid: 93c814b15dd733940b31600a4c1d0da6
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step1/Eq_Step1_S2.unity
+    guid: e9ef30a7e1af8f74a82c4e246454e6f9
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step1/Eq_Step1_S3.unity
+    guid: 717ee5a1ff6d4714cbbff4f4a768dd59
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step1/Eq_Step1_S4.unity
+    guid: 133a4bbd84750ab4f997c80dfd68f2de
   m_configObjects: {}
