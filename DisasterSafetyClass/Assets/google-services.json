@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45826144575",
+    "project_id": "swudb1",
+    "storage_bucket": "swudb1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45826144575:android:e7067ba593684bb88d3b8a",
+        "android_client_info": {
+          "package_name": "com.safezone.kidsdisaster"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX70lOPUgs2IZsDs5JUZRX1YZLhPOk-8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
