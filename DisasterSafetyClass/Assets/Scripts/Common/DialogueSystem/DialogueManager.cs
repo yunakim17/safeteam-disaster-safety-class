@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
             Debug.LogError($"JSON 파일 못 찾음: {fileName}");
             return;
         }
+
         dialogueLines = new List<DialogueLine>(JsonHelper.FromJson<DialogueLine>(json.text));
     }
 
@@ -56,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         ChoiceEntry[] choices = JsonHelper.FromJson<ChoiceEntry>(json.text);
+        Debug.Log($" 선택지 {choices.Length}개 로드됨");
         choiceDict = new Dictionary<int, ChoiceEntry>();
         foreach (var c in choices)
         {
@@ -66,6 +68,7 @@ public class DialogueManager : MonoBehaviour
     // 현재 대사 출력(선택지가 있으면 ChoiceManager 호출)
     public void ShowDialogue()
     {
+        Debug.Log($" 현재 대사 인덱스: {currentLineIndex}");
         if (currentLineIndex >= dialogueLines.Count)
         {
             if (!string.IsNullOrEmpty(nextSceneName))
@@ -80,14 +83,18 @@ public class DialogueManager : MonoBehaviour
             
             return;
         }
+        DialogueLine line = dialogueLines[currentLineIndex];
+        int currentSequence = line.sequence;
+
+        Debug.Log($"현재 대사 인덱스: {currentLineIndex}, 시퀀스: {currentSequence}");
         // 선택지가 있는 시점이면 선택지 먼저 출력
-        if (choiceDict.ContainsKey(currentLineIndex))
+        if (choiceDict != null && choiceDict.ContainsKey(currentSequence))
         {
-            ChoiceManager.Instance.ShowChoice(choiceDict[currentLineIndex], OnChoiceResult);
+            Debug.Log(" 선택지 표시 시점 도달!(시퀀스 기반)");
+            ChoiceManager.Instance.ShowChoice(choiceDict[currentSequence], OnChoiceResult);
             return;
         }
 
-        DialogueLine line = dialogueLines[currentLineIndex];
         if (line == null) return;
 
         currentText = line.dialogue_text;

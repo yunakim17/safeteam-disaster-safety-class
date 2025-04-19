@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8215991147092005586}
   m_Layer: 0
-  m_Name: DialogueUIGroup
+  m_Name: DialogueUIGroupStep1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

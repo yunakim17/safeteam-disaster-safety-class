@@ -32,6 +32,7 @@ public class ChoiceManager : MonoBehaviour
     // 선택지 보여주기
     public void ShowChoice(ChoiceEntry choice, System.Action<bool> callback)
     {
+        Debug.Log($"선택지 UI 표시 중: {choice.question}");
         currentChoice = choice;
         resultCallback = callback;
 
