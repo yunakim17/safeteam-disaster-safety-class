@@ -35,5 +35,19 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Eq_Step4_S1");
     }
 
+    public void Eq_Step3_Quiz01()
+    {
+        SceneManager.LoadScene("Eq_Step3_Quiz01");
+    }
+
+    public void Eq_Step3_Quiz02()
+    {
+        SceneManager.LoadScene("Eq_Step3_Quiz02");
+    }
+
+    public void Eq_Step3_Quiz03()
+    {
+        SceneManager.LoadScene("Eq_Step3_Quiz03");
+    }
 
 }
