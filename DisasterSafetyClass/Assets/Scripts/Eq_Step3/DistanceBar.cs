@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DistanceBar : MonoBehaviour
 {
@@ -83,5 +84,13 @@ public class DistanceBar : MonoBehaviour
         // 플레이어 점프 x
         if (playerScript != null)
             playerScript.StopPlayerControl();
+
+        StartCoroutine(GoToNextSceneAfterDelay(2f));
+    }
+
+    private IEnumerator GoToNextSceneAfterDelay(float delay) //다음 씬 이동
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("Eq_Step3_S4");  
     }
 }
