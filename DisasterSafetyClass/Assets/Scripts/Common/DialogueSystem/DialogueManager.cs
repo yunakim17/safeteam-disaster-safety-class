@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI dialogueText; // 자막 텍스트 표시용
     public AudioSource audioSource; // 음성 재생용
     public float typingSpeed = 0.05f; // 타이핑 속도
+    public GameObject nextButton; //다음 씬 이동 버튼
+
+    public Button btn1_2;
+    public Button btn3_4;
+    public Button btn5_6;
+    public Button btn7;
+
+    public UIShake uiShake;
 
     private bool isTyping = false; //현재 타이핑 중 여부
     private string currentText = ""; // 현재 출력중인 대사 텍스트
@@ -16,6 +25,8 @@ public class DialogueManager : MonoBehaviour
     private List<DialogueLine> dialogueLines; //대사리스트
     private Dictionary<int, ChoiceEntry> choiceDict; //선택지 데이터를 저장하는 딕셔너리(sequence 기준)
     private string nextSceneName = "";
+
+    private HashSet<int> visitedIndices = new HashSet<int>(); //버튼별 대사 본 여부 추적용
 
     //대사와 선택지를 시작할 때 호출. 두개의 json파일 이름을 받음
     public void StartDialogue(string dialogueFile, string choiceFile, string nextScene = "")
@@ -28,12 +39,30 @@ public class DialogueManager : MonoBehaviour
         LoadDialogueFromJson(dialogueFile); // 대사 로드
         LoadChoicesFromJson(choiceFile); // 선택지 로드
         ShowDialogue(); // 첫 대사 출력
+
+        if (SceneManager.GetActiveScene().name == "Eq_Step1_S3")
+        {
+            btn1_2.onClick.AddListener(() => ShowSingleLine(1));
+            btn3_4.onClick.AddListener(() => ShowSingleLine(2));
+            btn5_6.onClick.AddListener(() => ShowSingleLine(3));
+            btn7.onClick.AddListener(() => ShowSingleLine(4));
+        }
+
+        if (SceneManager.GetActiveScene().name == "Eq_Step3_S1")
+        {
+            if (uiShake != null)
+            {
+                Debug.Log("UI 흔들림 시작");
+                uiShake.StartShake(2f, 10f);
+            }
+        }
+       
     }
 
     //대사 json 파일 로드
     private void LoadDialogueFromJson(string fileName)
     {
-        TextAsset json = Resources.Load<TextAsset>(fileName); 
+        TextAsset json = Resources.Load<TextAsset>(fileName);
         if (json == null)
         {
             Debug.LogError($"JSON 파일 못 찾음: {fileName}");
@@ -80,7 +109,7 @@ public class DialogueManager : MonoBehaviour
             {
                 Debug.Log("대사 끝! 이동할 씬 없음");
             }
-            
+
             return;
         }
         DialogueLine line = dialogueLines[currentLineIndex];
@@ -108,6 +137,12 @@ public class DialogueManager : MonoBehaviour
         }
 
         StartCoroutine(TypeSentence(currentText));// 타이핑시작
+
+        if (SceneManager.GetActiveScene().name == "Eq_Step3_S1" && line.sequence == 3 && uiShake != null)
+        {
+            Debug.Log("UI 흔들림 정지 시작");
+            uiShake.StopShake();
+        }
     }
 
     // 타이핑 효과 코루틴 (한 글자씩 출력)
@@ -128,6 +163,11 @@ public class DialogueManager : MonoBehaviour
     // 화면을 터치했을 때 호출됨
     public void OnTouch()
     {
+        if (ChoiceManager.Instance != null && ChoiceManager.Instance.choicePanel.activeSelf)
+        {
+            Debug.Log("선택지 패널이 활성화된 상태에서는 터치로 대사 넘기기 불가");
+            return;
+        }
         if (isTyping)
         {
             dialogueText.text = currentText; // 전체 문장 표시
@@ -169,6 +209,49 @@ public class DialogueManager : MonoBehaviour
         else
         {
             Debug.Log("오답! ChoiceManager가 피드백 처리");
+        }
+    }
+
+    //S3 특정대사 인덱스
+    public void ShowSingleLine(int index)
+    {
+        if (index < 0 || index >= dialogueLines.Count)
+        {
+            Debug.LogWarning("잘못된 대사 인덱스!");
+            return;
+        }
+
+        DialogueLine line = dialogueLines[index];
+        currentText = line.dialogue_text;
+        dialogueText.text = "";
+
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
+        AudioClip clip = line.GetVoice();
+        if(clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(currentText));
+
+        visitedIndices.Add(index);
+
+        if (visitedIndices.Contains(1) && visitedIndices.Contains(2) && visitedIndices.Contains(3) && visitedIndices.Contains(4))
+        {
+            nextButton.SetActive(true);
+        }
+
+    }
+
+    public void GoToNextScene()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 }
