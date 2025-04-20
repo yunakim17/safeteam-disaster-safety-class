@@ -1197,14 +1197,14 @@ RectTransform:
   m_GameObject: {fileID: 1693879807}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0208334, y: 1.0208334, z: 1.0208334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1881152480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 663.54175, y: -153.12497}
+  m_AnchoredPosition: {x: 650, y: -150}
   m_SizeDelta: {x: 624, y: 772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1693879809
@@ -1484,6 +1484,14 @@ PrefabInstance:
     - target: {fileID: 3701875901285958342, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       propertyPath: m_fontSizeBase
       value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019142642620721270, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019142642620721270, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 5253068184301894709, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       propertyPath: m_Name

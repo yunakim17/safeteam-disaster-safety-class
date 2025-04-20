@@ -23,4 +23,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EqScenes/Eq_Step1/Eq_Step1_S4.unity
     guid: 133a4bbd84750ab4f997c80dfd68f2de
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S1.unity
+    guid: edc6cc853e6e70047ba12699b46d0163
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S2.unity
+    guid: 43577c112ce688d49a5fde229dd5a498
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S3.unity
+    guid: d5d7d8e9edea40848ae6a6a0bb58618d
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S4.unity
+    guid: 4daca2636f344854eb4979e9f4808503
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S5.unity
+    guid: fb3887d0bf53ba849a96a9cfc7fae79e
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S6.unity
+    guid: a08790b81d1f4ac47ade6e441968d1c4
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S7.unity
+    guid: 2610fb7a436dfd64483e7e527a304900
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S8.unity
+    guid: 532674d5dfc182e47a37deda8ca91d10
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S9.unity
+    guid: 757ac972fd6075845b48c2a7815e34d6
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S10.unity
+    guid: aaa1f21e6cccc754d820f0fb02259a17
+  - enabled: 1
+    path: Assets/Scenes/EqScenes/Eq_Step2/Eq_Step2_S11.unity
+    guid: 69f4e8cbb4e55174cbe5848fa30d4b90
   m_configObjects: {}
