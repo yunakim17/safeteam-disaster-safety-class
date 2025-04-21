@@ -17,7 +17,7 @@ public class Shake : MonoBehaviour
     {
         if (isShaking)
         {
-            Vector3 offset = Random.insideUnitSphere * shakeIntensity;
+            Vector3 offset = Random.insideUnitSphere * shakeIntensity* 0.3f;
             offset.z = 0f; // 2D에서 Z축 흔들림 방지
             transform.localPosition = originalPosition + offset;
 
