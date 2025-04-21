@@ -23,8 +23,8 @@ public class Shake : MonoBehaviour
 
             if (isFading)
             {
-                shakeIntensity = Mathf.MoveTowards(shakeIntensity, 0f, fadeOutSpeed * Time.deltaTime);
-                if (shakeIntensity <= 0.01f)
+                shakeIntensity = Mathf.MoveTowards(shakeIntensity, 0f, fadeOutSpeed * Time.deltaTime* 0.3f);
+                if (shakeIntensity <= 0.00001f)
                 {
                     isShaking = false;
                     transform.localPosition = originalPosition;
