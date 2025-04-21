@@ -560,10 +560,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 860371427916713482, guid: 43b188685c060fb4aa999364d11b2bb2, type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1099097082425209494, guid: 43b188685c060fb4aa999364d11b2bb2, type: 3}
       propertyPath: m_Name
       value: DialogueUIGroupStep2

@@ -84,8 +84,7 @@ public class ChoiceManager : MonoBehaviour
     {
         feedbackText.text = currentChoice.feedback;
         feedbackText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2.5f); // 2.5ÃÊ ´ë±â ÈÄ ¼û±è
-        feedbackText.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2.5f);
     }
 }
 
