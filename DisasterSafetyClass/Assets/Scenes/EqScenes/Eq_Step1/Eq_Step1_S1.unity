@@ -576,6 +576,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4015144132705311773, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 5019142642620721270, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       propertyPath: m_ScreenMatchMode
       value: 1
@@ -587,6 +591,10 @@ PrefabInstance:
     - target: {fileID: 5253068184301894709, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       propertyPath: m_Name
       value: DialogueUIGroup
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739892068062578433, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8215991147092005586, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       propertyPath: m_LocalPosition.x
