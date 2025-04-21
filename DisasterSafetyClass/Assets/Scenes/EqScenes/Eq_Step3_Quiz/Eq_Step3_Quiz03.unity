@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -208,6 +207,9 @@ PrefabInstance:
       addedObject: {fileID: 601332714}
     - targetCorrespondingSourceObject: {fileID: 6079135364769920921, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       insertIndex: 1
+      addedObject: {fileID: 1273833792}
+    - targetCorrespondingSourceObject: {fileID: 6079135364769920921, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
+      insertIndex: 2
       addedObject: {fileID: 764034499}
     - targetCorrespondingSourceObject: {fileID: 6079135364769920921, guid: 7c72c6827e926ab41956f3b438e36efe, type: 3}
       insertIndex: -1
@@ -410,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764034499
 RectTransform:
   m_ObjectHideFlags: 0
@@ -692,6 +694,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1273833789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1273833792}
+  - component: {fileID: 1273833791}
+  - component: {fileID: 1273833790}
+  m_Layer: 5
+  m_Name: mong_speak_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1273833790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273833789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1615282765, guid: 578f279f0e9775842ba65684dd23a412, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1273833791
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273833789}
+  m_CullTransparentMesh: 1
+--- !u!224 &1273833792
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273833789}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 524622676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 650, y: -150}
+  m_SizeDelta: {x: 618, y: 772}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1359816706
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,11 +829,18 @@ MonoBehaviour:
   quizQuestion: "3. \uB300\uD53C \uC7A5\uC18C\uC5D0 \uB3C4\uCC29\uD558\uBA74 \uBC14\uB85C
     \uC9D1\uC73C\uB85C \uAC00\uC9C0 \uC54A\uACE0 \uC120\uC0DD\uB2D8\uC758 \uC548\uB0B4\uC5D0
     \uB530\uB77C \uD589\uB3D9\uD574\uC57C \uD574\uC694."
-  feedbackMessage: "\uC544\uB2C8\uC57C! \uC9C0\uC9C4 \uC774\uD6C4\uC5D0\uB294 \uCD94\uAC00\uC801\uC778
-    \uC704\uD5D8\uC774 \uC788\uC744 \uC218 \uC788\uC5B4. \uC120\uC0DD\uB2D8\uC758
-    \uC548\uB0B4\uC5D0 \uB530\uB77C \uC548\uC804\uD55C \uACF3\uC5D0\uC11C \uAE30\uB2E4\uB824\uC57C
-    \uD574."
+  correctFeedbackMessage: "\uB9DE\uC544! \uBC14\uB85C \uC6B4\uB3D9\uC7A5\uC73C\uB85C
+    \uB098\uAC00\uBA74 \uB2E4\uCE60 \uC218 \uC788\uC5B4. \uD754\uB4E4\uB9BC\uC774
+    \uBA48\uCD9C \uB54C\uAE4C\uC9C0 \uCC45\uC0C1\uACFC \uAC19\uC740 \uD2BC\uD2BC\uD55C
+    \uBB3C\uAC74 \uC544\uB798\uC5D0\uC11C \uBAB8\uC744 \uBCF4\uD638\uD574\uC57C \uD574. "
+  wrongFeedbackMessage: "\uC544\uB2C8\uC57C! \uBC14\uB85C \uC6B4\uB3D9\uC7A5\uC73C\uB85C
+    \uB098\uAC00\uBA74 \uB2E4\uCE60 \uC218 \uC788\uC5B4. \uD754\uB4E4\uB9BC\uC774
+    \uBA48\uCD9C \uB54C\uAE4C\uC9C0 \uCC45\uC0C1\uACFC \uAC19\uC740 \uD2BC\uD2BC\uD55C
+    \uBB3C\uAC74 \uC544\uB798\uC5D0\uC11C \uBAB8\uC744 \uBCF4\uD638\uD574\uC57C \uD574. "
   correctIsO: 1
+  characterImage: {fileID: 1273833790}
+  defaultSprite: {fileID: 1615282765, guid: 578f279f0e9775842ba65684dd23a412, type: 3}
+  correctAnswerSprite: {fileID: -1850560266, guid: 84afbff4676013c4dbd798b9655c01cb, type: 3}
 --- !u!1 &1538718030
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,7 +1035,7 @@ MonoBehaviour:
     \uB530\uB77C \uD589\uB3D9\uD574\uC57C \uD574\uC694."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c24734fbcc2fa204fa3816dfc279d284, type: 2}
-  m_sharedMaterial: {fileID: -4499564572325959380, guid: c24734fbcc2fa204fa3816dfc279d284, type: 2}
+  m_sharedMaterial: {fileID: -1806421280667226181, guid: c24734fbcc2fa204fa3816dfc279d284, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
