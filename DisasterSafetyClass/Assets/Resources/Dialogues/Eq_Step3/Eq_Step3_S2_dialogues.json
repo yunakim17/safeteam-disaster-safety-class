@@ -1,14 +1,8 @@
 [
-{
+  {
     "sequence": 6,
     "speaker": "몽대장",
     "dialogue_text": "",
-    "voice_path": ""
-  },  
-  {
-    "sequence": 7,
-    "speaker": "몽대장",
-    "dialogue_text": "대피 장소로 이동할 때는 손이나 가방 등으로 머리를 감싸 떨어지는 물건으로부터 머리를 보호해.",
     "voice_path": ""
   }
 ]
