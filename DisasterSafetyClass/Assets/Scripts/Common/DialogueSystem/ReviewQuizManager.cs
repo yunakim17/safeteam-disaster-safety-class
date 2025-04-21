@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -16,8 +15,14 @@ public class ReviewQuizManager : MonoBehaviour
 
     [Header("퀴즈 설정")]
     [TextArea] public string quizQuestion;
-    [TextArea] public string feedbackMessage;  // 오답 시 피드백
-    public bool correctIsO;  // true면 O가 정답, false면 X가 정답
+    [TextArea] public string correctFeedbackMessage; // 정답 시 피드백
+    [TextArea] public string wrongFeedbackMessage;   // 오답 시 피드백
+    public bool correctIsO; // true면 O가 정답, false면 X가 정답
+
+    [Header("캐릭터 이미지")]
+    public Image characterImage;          // 캐릭터 이미지 (mong_speak_0 오브젝트)
+    public Sprite defaultSprite;          // 기본 상태 이미지
+    public Sprite correctAnswerSprite;    // 정답 맞췄을 때 이미지 (mong)
 
     void Start()
     {
@@ -28,15 +33,23 @@ public class ReviewQuizManager : MonoBehaviour
 
         oImageButton.SetActive(true);
         xImageButton.SetActive(true);
+
+        // 캐릭터 초기 이미지 설정
+        if (characterImage != null && defaultSprite != null)
+        {
+            characterImage.sprite = defaultSprite;
+        }
     }
 
     public void SelectO()
     {
+        StartCoroutine(PressEffect(oImageButton));
         CheckAnswer(userChoseO: true);
     }
 
     public void SelectX()
     {
+        StartCoroutine(PressEffect(xImageButton));
         CheckAnswer(userChoseO: false);
     }
 
@@ -48,24 +61,45 @@ public class ReviewQuizManager : MonoBehaviour
         oImageButton.GetComponent<Button>().interactable = false;
         xImageButton.GetComponent<Button>().interactable = false;
 
+        // 피드백 표시
         if (isCorrect)
         {
-            // 정답일 경우 피드백 없이 바로 다음 버튼 활성화
-            nextButton.gameObject.SetActive(true);
-            feedbackText.gameObject.SetActive(false); // 혹시 모르니 숨기기
+            feedbackText.text = correctFeedbackMessage;
+            feedbackText.color = Color.green;
+
+            // 캐릭터 이미지 변경
+            if (characterImage != null && correctAnswerSprite != null)
+            {
+                characterImage.sprite = correctAnswerSprite;
+            }
         }
         else
         {
-            // 오답일 경우 피드백 보여주기 + 다음 버튼
-            feedbackText.text = feedbackMessage;
-            feedbackText.gameObject.SetActive(true);       // 이 줄 중요!!
-            nextButton.gameObject.SetActive(true);
-        }
-    }
+            feedbackText.text = wrongFeedbackMessage;
+            feedbackText.color = Color.red;
 
+            // 오답이면 기본 이미지 유지 or 되돌리기
+            if (characterImage != null && defaultSprite != null)
+            {
+                characterImage.sprite = defaultSprite;
+            }
+        }
+
+        feedbackText.gameObject.SetActive(true);
+        nextButton.gameObject.SetActive(true);
+    }
 
     public void GoToNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    // 버튼 눌림 효과
+    IEnumerator PressEffect(GameObject buttonObj)
+    {
+        Vector3 originalScale = buttonObj.transform.localScale;
+        buttonObj.transform.localScale = originalScale * 0.9f;
+        yield return new WaitForSeconds(0.1f);
+        buttonObj.transform.localScale = originalScale;
     }
 }
