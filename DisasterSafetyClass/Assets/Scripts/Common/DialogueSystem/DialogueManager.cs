@@ -17,7 +17,8 @@ public class DialogueManager : MonoBehaviour
     public Button btn5_6;
     public Button btn7;
 
-    public UIShake uiShake;
+    public Shake shakeTarget;
+
 
     private bool isTyping = false; //현재 타이핑 중 여부
     private string currentText = ""; // 현재 출력중인 대사 텍스트
@@ -46,16 +47,7 @@ public class DialogueManager : MonoBehaviour
             btn3_4.onClick.AddListener(() => ShowSingleLine(2));
             btn5_6.onClick.AddListener(() => ShowSingleLine(3));
             btn7.onClick.AddListener(() => ShowSingleLine(4));
-        }
-
-        if (SceneManager.GetActiveScene().name == "Eq_Step3_S1")
-        {
-            if (uiShake != null)
-            {
-                Debug.Log("UI 흔들림 시작");
-                uiShake.StartShake(2f, 10f);
-            }
-        }
+        }      
        
     }
 
@@ -138,11 +130,12 @@ public class DialogueManager : MonoBehaviour
 
         StartCoroutine(TypeSentence(currentText));// 타이핑시작
 
-        if (SceneManager.GetActiveScene().name == "Eq_Step3_S1" && line.sequence == 3 && uiShake != null)
+        if (line.sequence == 4 && shakeTarget != null)
         {
-            Debug.Log("UI 흔들림 정지 시작");
-            uiShake.StopShake();
+            Debug.Log("시퀀스 3 → UI 흔들림 점점 멈춤 시작");
+            shakeTarget.StopShake(1f); // 1초 동안 점점 멈추기
         }
+
     }
 
     // 타이핑 효과 코루틴 (한 글자씩 출력)
