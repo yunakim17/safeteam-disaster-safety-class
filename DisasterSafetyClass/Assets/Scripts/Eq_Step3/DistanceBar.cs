@@ -85,6 +85,9 @@ public class DistanceBar : MonoBehaviour
         if (playerScript != null)
             playerScript.StopPlayerControl();
 
+        // 클리어 UI 활성화
+        FindObjectOfType<GameManager>().ShowClearText();
+
         StartCoroutine(GoToNextSceneAfterDelay(2f));
     }
 
