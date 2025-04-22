@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c32a10a543297f40b04c4b3a15e466a
+guid: 284cc53b813687a44b1cac6d37dacdf7
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - CookieRun
+  - Noto Sans KR
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
